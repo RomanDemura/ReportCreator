@@ -9,13 +9,13 @@ import tech.demura.reportcreator.domain.GetReportUseCase
 
 class MainActivity : AppCompatActivity() {
 
-    private val repository = ReportRepositoryImpl
-    private val report = GetReportUseCase(repository)
+//    private val repository = ReportRepositoryImpl
+//    private val report = GetReportUseCase(repository)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("Report", report.getReport())
+//        Log.d("Report", report.getReport())
 
     }
 }

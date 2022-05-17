@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/createReportFragment">
+    <fragment
+        android:id="@+id/createReportFragment"
+        android:name="tech.demura.reportcreator.presentation.CreateReportFragment"
+        android:label="CreateReportFragment" >
+        <action
+            android:id="@+id/action_createReportFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="tech.demura.reportcreator.presentation.ResultFragment"
+        android:label="ResultFragment" >
+        <argument
+            android:name="report"
+            app:argType="tech.demura.reportcreator.domain.Report" />
+    </fragment>
+</navigation>
