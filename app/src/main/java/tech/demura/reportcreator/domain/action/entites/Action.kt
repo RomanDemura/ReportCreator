@@ -1,8 +1,8 @@
-package tech.demura.reportcreator.domain
+package tech.demura.reportcreator.domain.action.entites
 
 data class Action(
     var text: String,
-    var value: Double,
+    var value: Int,
     var id: Int = UNDEFINED_ID
 ){
     companion object{

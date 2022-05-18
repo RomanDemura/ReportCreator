@@ -1,29 +1,24 @@
 package tech.demura.reportcreator.data
 
-import androidx.lifecycle.MutableLiveData
-import tech.demura.reportcreator.domain.Action
-import tech.demura.reportcreator.domain.Report
-import tech.demura.reportcreator.domain.ReportRepository
+import tech.demura.reportcreator.domain.action.entites.Action
+import tech.demura.reportcreator.domain.report.entites.Report
+import tech.demura.reportcreator.domain.report.repository.ReportRepository
 
 object ReportRepositoryImpl : ReportRepository {
 
     private lateinit var report: Report
-    private var actionsLD = MutableLiveData<List<Action>>()
-    private var actionsList = sortedSetOf<Action>({ o1, o2 -> o1.id.compareTo(o2.id) })
-    private var autoIncrement = 0
-
-    init {
-        for (i in 1..10) {
-            addAction(Action("Action: $i", i.toDouble()))
-        }
-        report = Report(
-            "09.05.2022",
-            "ЖК Притяжение",
-            4,
-            6,
-            actionsList.toList()
-        )
-    }
+//    private val actions1 = ActionRepositoryImpl
+//
+//    init {
+//
+//        report = Report(
+//            "09.05.2022",
+//            "ЖК Притяжение",
+//            4,
+//            6,
+//            actions1.getActionList()
+//        )
+//    }
 
     override fun createReport(
         date: String,
@@ -53,34 +48,12 @@ object ReportRepositoryImpl : ReportRepository {
         return reportString.toString()
     }
 
-    override fun getAction(actionId: Int): Action {
-        return actionsList.find {
-            it.id == actionId
-        } ?: throw RuntimeException("Action with $actionId actionId not found")
-    }
 
-    override fun addAction(action: Action) {
-        if (action.id == Action.UNDEFINED_ID) {
-            action.id = autoIncrement++
-        }
-        actionsList.add(action)
-        updateLD()
 
-    }
 
-    override fun deleteAction(action: Action) {
-        actionsList.remove(action)
-        updateLD()
-    }
 
-    override fun editAction(action: Action) {
-        val oldAction = getAction(action.id)
-        deleteAction(oldAction)
-        addAction(action)
-        updateLD()
-    }
 
-    private fun updateLD() {
-        actionsLD.value = actionsList.toList()
-    }
+
+
+
 }

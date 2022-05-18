@@ -1,4 +1,7 @@
-package tech.demura.reportcreator.domain
+package tech.demura.reportcreator.domain.report.repository
+
+import tech.demura.reportcreator.domain.action.entites.Action
+import tech.demura.reportcreator.domain.report.entites.Report
 
 interface ReportRepository {
 
@@ -11,12 +14,4 @@ interface ReportRepository {
     ): Report
 
     fun getReport(): String
-
-    fun addAction(action: Action)
-
-    fun deleteAction(action: Action)
-
-    fun editAction(action: Action)
-
-    fun getAction(actionId: Int): Action
 }
