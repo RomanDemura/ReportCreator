@@ -1,6 +1,6 @@
 package tech.demura.reportcreator.data
 
-import tech.demura.reportcreator.domain.action.entites.Action
+import tech.demura.reportcreator.domain.building_info.entites.BuildingInfo
 import tech.demura.reportcreator.domain.report.entites.Report
 import tech.demura.reportcreator.domain.report.repository.ReportRepository
 
@@ -25,7 +25,7 @@ object ReportRepositoryImpl : ReportRepository {
         builing: String,
         regularWorker: Int,
         notRegularWorkers: Int,
-        actions: List<Action>
+        actions: List<BuildingInfo>
     ): Report {
         return Report(date, builing, regularWorker, notRegularWorkers, actions)
     }
