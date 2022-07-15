@@ -3,11 +3,13 @@ package tech.demura.reportcreator.domain.report.entites
 import tech.demura.reportcreator.domain.Action
 import tech.demura.reportcreator.domain.Machine
 import tech.demura.reportcreator.domain.Plant
+import tech.demura.reportcreator.domain.building.entites.Building
 import tech.demura.reportcreator.domain.building_info.entites.BuildingInfo
 import java.util.*
 
 
 data class Report(
+    val building: Building,                 // Объект
     val date: Date,                         // Дата
     val countOfRegularWorkers: Int,         // Штатные сотрудники
     val countOfNotRegularWorkers: Int,      // Рабочий класс

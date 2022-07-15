@@ -18,6 +18,8 @@ interface BuildingInfoRepository {
 
     fun getMachineList(): List<Machine>
 
+    fun updateDirtInfo(import: Int, export: Int, usage: Int)
+
     fun addReport(report: Report)
 
     fun getAllReports(): List<Report>
