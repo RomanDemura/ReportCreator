@@ -1,6 +1,6 @@
 package tech.demura.reportcreator.domain
 
 class Machine (
-    val name: String,
-    val workShift: Int
+    val name: String = "Default Machine name",
+    val workShift: Int = 0
 )

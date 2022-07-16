@@ -8,6 +8,8 @@ import tech.demura.reportcreator.domain.report.entites.Report
 
 interface BuildingInfoRepository {
 
+    fun createBuildingInfo(): BuildingInfo
+
     fun addPlant(plant: Plant)
 
     fun updatePlant(plant: Plant, import: Int, usage: Int)

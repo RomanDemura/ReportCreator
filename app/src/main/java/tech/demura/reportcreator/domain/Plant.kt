@@ -1,7 +1,7 @@
 package tech.demura.reportcreator.domain
 
 class Plant (
-    val name: String,
-    var importedPlants: Int,
-    var usagePlants: Int
+    val name: String = "Default Plant name",
+    var importedPlants: Int = 0,
+    var usagePlants: Int = 0
 )

@@ -11,7 +11,6 @@ import java.util.*
 
 class CreateReportUseCase(private val repository: ReportRepository) {
     fun createReport(
-        building: Building,
         date: Date,
         countOfRegularWorkers: Int,
         countOfNotRegularWorkers: Int,
@@ -25,7 +24,6 @@ class CreateReportUseCase(private val repository: ReportRepository) {
         anotherActions: List<Action>,
     ): Report {
         return repository.createReport(
-            building,
             date,
             countOfRegularWorkers,
             countOfNotRegularWorkers,

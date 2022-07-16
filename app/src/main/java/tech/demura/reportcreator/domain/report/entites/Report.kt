@@ -9,7 +9,6 @@ import java.util.*
 
 
 data class Report(
-    val building: Building,                 // Объект
     val date: Date,                         // Дата
     val countOfRegularWorkers: Int,         // Штатные сотрудники
     val countOfNotRegularWorkers: Int,      // Рабочий класс
@@ -21,10 +20,4 @@ data class Report(
     val plantsList: List<Plant>,            // Список растений
     val machines: List<Machine>,            // Список использованной техники
     val anotherActions: List<Action>,       // Список дополнительных действий
-
-    val id: Int = UNDEFINED_ID
-){
-    companion object{
-        const val UNDEFINED_ID = -1
-    }
-}
+)

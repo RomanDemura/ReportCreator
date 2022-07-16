@@ -7,9 +7,10 @@ import tech.demura.reportcreator.domain.building.entites.Building
 import tech.demura.reportcreator.domain.building_info.entites.BuildingInfo
 import tech.demura.reportcreator.domain.report.entites.Report
 import tech.demura.reportcreator.domain.report.repository.ReportRepository
+import java.lang.StringBuilder
 import java.util.*
 
-object ReportRepositoryImpl : ReportRepository {
+class ReportRepositoryImpl : ReportRepository {
 
     private lateinit var report: Report
 //    private val actions1 = ActionRepositoryImpl
@@ -45,7 +46,6 @@ object ReportRepositoryImpl : ReportRepository {
 //    }
 
     override fun createReport(
-        building: Building,
         date: Date,
         countOfRegularWorkers: Int,
         countOfNotRegularWorkers: Int,
@@ -59,7 +59,6 @@ object ReportRepositoryImpl : ReportRepository {
         anotherActions: List<Action>
     ): Report {
         return Report(
-            building,
             date,
             countOfRegularWorkers,
             countOfNotRegularWorkers,
@@ -73,7 +72,7 @@ object ReportRepositoryImpl : ReportRepository {
             anotherActions)
     }
 
-    override fun getReport(id: Int): String {
+    override fun getReport(building: Building, report: Report): String {
         TODO("Not yet implemented")
     }
 

@@ -11,7 +11,6 @@ import java.util.*
 interface ReportRepository {
 
     fun createReport(
-        building: Building,
         date: Date,
         countOfRegularWorkers: Int,
         countOfNotRegularWorkers: Int,
@@ -25,5 +24,5 @@ interface ReportRepository {
         anotherActions: List<Action>,
     ): Report
 
-    fun getReport(id: Int): String
+    fun getReport(building: Building, report: Report): String
 }

@@ -7,13 +7,6 @@ interface BuildingRepository {
 
     fun createBuilding(name: String, nameOfResponsiblePerson: String, address: String)
 
-    fun createBuildingWithInfo(
-        name: String,
-        nameOfResponsiblePerson: String,
-        address: String,
-        buildingInfo: BuildingInfo
-    )
-
     fun getAllBuildings(): List<Building>
 
     fun getBuilding(id: Int): Building

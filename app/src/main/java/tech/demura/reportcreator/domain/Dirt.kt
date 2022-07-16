@@ -1,7 +1,7 @@
 package tech.demura.reportcreator.domain
 
 data class Dirt (
-    var importedDirt: Int,
-    var exportedDirt: Int,
-    var usageDirt: Int
+    var importedDirt: Int = 0,
+    var exportedDirt: Int = 0,
+    var usageDirt: Int = 0
 )
