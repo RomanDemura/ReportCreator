@@ -1,10 +1,8 @@
 package tech.demura.reportcreator.domain.report.entites
 
-import tech.demura.reportcreator.domain.Action
-import tech.demura.reportcreator.domain.Machine
-import tech.demura.reportcreator.domain.Plant
-import tech.demura.reportcreator.domain.building.entites.Building
-import tech.demura.reportcreator.domain.building_info.entites.BuildingInfo
+import tech.demura.reportcreator.domain.action.entites.Action
+import tech.demura.reportcreator.domain.machine.entites.Machine
+import tech.demura.reportcreator.domain.plant.entites.Plant
 import java.util.*
 
 
