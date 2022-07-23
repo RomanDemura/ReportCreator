@@ -7,15 +7,21 @@ import java.util.*
 
 
 data class Report(
-    val date: Date,                         // Дата
-    val countOfRegularWorkers: Int,         // Штатные сотрудники
-    val countOfNotRegularWorkers: Int,      // Рабочий класс
-    val countOfSocialWorkers: Int,          // Социальные рабочие
-    val workShift: Int,                     // Рабочая смена
-    val dirtImport: Int,                    // Грунта получено
-    val dirtExport: Int,                    // Грунта увезено
-    val dirtUsage: Int,                     // Грунта использовано
-    val plantsList: List<Plant>,            // Список растений
-    val machines: List<Machine>,            // Список использованной техники
-    val anotherActions: List<Action>,       // Список дополнительных действий
-)
+    var id: Int = Plant.UNDEFINED_ID,
+    var buildingId: Int,
+    var date: Date,                         // Дата
+    var countOfRegularWorkers: Int,         // Штатные сотрудники
+    var countOfNotRegularWorkers: Int,      // Рабочий класс
+    var countOfSocialWorkers: Int,          // Социальные рабочие
+    var workShift: Int,                     // Рабочая смена
+    var dirtImport: Int,                    // Грунта получено
+    var dirtExport: Int,                    // Грунта увезено
+    var dirtUsage: Int,                     // Грунта использовано
+    var plantsList: List<Plant>,            // Список растений
+    var machines: List<Machine>,            // Список использованной техники
+    var anotherActions: List<Action>,       // Список дополнительных действий
+){
+    companion object{
+        const val UNDEFINED_ID = -1
+    }
+}

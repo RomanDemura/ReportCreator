@@ -8,6 +8,8 @@ interface PlantRepository {
 
     fun getPlant(id: Int): Plant
 
+    fun deletePlant(plant: Plant)
+
     fun updatePlant(plant: Plant)
 
     fun getBuildingPlants(buildingId: Int): List<Plant>

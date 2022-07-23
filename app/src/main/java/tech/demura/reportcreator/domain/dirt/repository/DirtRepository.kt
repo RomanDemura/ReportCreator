@@ -4,7 +4,9 @@ import tech.demura.reportcreator.domain.dirt.entites.Dirt
 
 interface DirtRepository {
 
-    fun addDirtInfo(buildingId: Int)
+    fun addDirtInfo(dirt: Dirt): Dirt
+
+    fun deleteDirtInfo(dirt: Dirt)
 
     fun getDirtInfo(buildingId: Int): Dirt
 
