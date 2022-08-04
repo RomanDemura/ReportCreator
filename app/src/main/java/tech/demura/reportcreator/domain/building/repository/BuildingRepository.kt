@@ -1,5 +1,6 @@
 package tech.demura.reportcreator.domain.building.repository
 
+import androidx.lifecycle.LiveData
 import tech.demura.reportcreator.domain.building.entites.Building
 
 interface BuildingRepository {
@@ -8,5 +9,5 @@ interface BuildingRepository {
 
     fun getBuilding(id: Int): Building
 
-    fun getAllBuildings(): List<Building>
+    fun getAllBuildings(): LiveData<List<Building>>
 }

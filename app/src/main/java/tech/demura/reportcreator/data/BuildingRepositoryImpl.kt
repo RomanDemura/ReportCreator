@@ -1,6 +1,7 @@
 package tech.demura.reportcreator.data
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import tech.demura.reportcreator.domain.action.entites.Action
 import tech.demura.reportcreator.domain.machine.entites.Machine
@@ -18,7 +19,7 @@ object BuildingRepositoryImpl: BuildingRepository {
 
     init {
         updateLD()
-        for (i in 1 .. 5){
+        for (i in 1 .. 25){
             val building = Building(nameOfBuilding = "Build $i", address = "Something", nameOfResponsiblePerson = "Roman")
             addBuilding(building)
         }
@@ -38,8 +39,8 @@ object BuildingRepositoryImpl: BuildingRepository {
         } ?: throw RuntimeException("Invalid Building ID: $id")
     }
 
-    override fun getAllBuildings(): List<Building> {
-        return buildingsLD.value ?: throw RuntimeException("Buildings Live Data is not exist")
+    override fun getAllBuildings(): LiveData<List<Building>> {
+        return buildingsLD
     }
 
     private fun updateLD() {

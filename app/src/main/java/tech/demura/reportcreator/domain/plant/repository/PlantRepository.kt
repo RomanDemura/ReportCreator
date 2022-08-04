@@ -1,5 +1,6 @@
 package tech.demura.reportcreator.domain.plant.repository
 
+import androidx.lifecycle.LiveData
 import tech.demura.reportcreator.domain.plant.entites.Plant
 
 interface PlantRepository {
@@ -12,5 +13,5 @@ interface PlantRepository {
 
     fun updatePlant(plant: Plant)
 
-    fun getBuildingPlants(buildingId: Int): List<Plant>
+    fun getBuildingPlants(buildingId: Int): LiveData<List<Plant>>
 }

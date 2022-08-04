@@ -10,6 +10,12 @@ object MachineRepositoryImpl: MachineRepository {
     val machineList = sortedSetOf<Machine>({o1, o2 -> o1.id.compareTo(o2.id)})
     var autoIncrement = 0
 
+    init {
+        updateLD()
+        val machine = Machine(buildingId = 0, name = "Volga")
+        addMachine(machine)
+    }
+
 
     override fun addMachine(machine: Machine) {
         if (machine.id == Machine.UNDEFINED_ID){

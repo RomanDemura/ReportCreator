@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/buildingListFragment">
+
+    <fragment
+        android:id="@+id/buildingListFragment"
+        android:name="tech.demura.reportcreator.presentation.buildings_list.BuildingListFragment"
+        android:label="BuildingListFragment" >
+        <action
+            android:id="@+id/action_buildingListFragment_to_buildingInfoFragment"
+            app:destination="@id/buildingInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buildingInfoFragment"
+        android:name="tech.demura.reportcreator.presentation.building_info.BuildingInfoFragment"
+        android:label="BuildingInfoFragment" >
+        <argument
+            android:name="buildingId"
+            app:argType="integer" />
+    </fragment>
+</navigation>

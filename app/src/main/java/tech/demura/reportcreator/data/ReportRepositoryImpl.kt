@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import tech.demura.reportcreator.domain.report.entites.Report
 import tech.demura.reportcreator.domain.report.repository.ReportRepository
 
-class ReportRepositoryImpl : ReportRepository {
+object ReportRepositoryImpl : ReportRepository {
 
     val reportLD = MutableLiveData<List<Report>>()
     val reportList = sortedSetOf<Report>({o1, o2 -> o1.id.compareTo(o2.id)})
