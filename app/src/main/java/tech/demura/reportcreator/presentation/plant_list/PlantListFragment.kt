@@ -1,13 +1,11 @@
 package tech.demura.reportcreator.presentation.plant_list
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import tech.demura.reportcreator.R
 import tech.demura.reportcreator.databinding.FragmentPlantListBinding
 
 class PlantListFragment : Fragment() {
@@ -21,7 +19,9 @@ class PlantListFragment : Fragment() {
     private val plantListViewModel: PlantListViewModel by lazy {
         ViewModelProvider(this)[PlantListViewModel::class.java]
     }
-    private val adapter = PlantListAdapter()
+    private val plantListAdapter : PlantListAdapter by lazy {
+        PlantListAdapter()
+    }
 
 
     override fun onCreateView(
@@ -36,9 +36,9 @@ class PlantListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         parseParams()
         plantListViewModel.getBuildingPlants(buildingId)
-        binding.rvPlantList.adapter = adapter
+        binding.rvPlantList.adapter = plantListAdapter
         plantListViewModel.plantsList.observe(viewLifecycleOwner){
-            adapter.plantsList = it
+            plantListAdapter.submitList(it)
         }
 
     }
@@ -60,13 +60,13 @@ class PlantListFragment : Fragment() {
 
         private const val BUILDING_ID = "building_id"
 
-        fun newInstance(buildingId: Int): PlantListFragment{
-            return PlantListFragment().apply {
-                arguments = Bundle().apply {
-                    putInt(BUILDING_ID, buildingId)
-                }
-            }
-        }
+//        fun newInstance(buildingId: Int): PlantListFragment{
+//            return PlantListFragment().apply {
+//                arguments = Bundle().apply {
+//                    putInt(BUILDING_ID, buildingId)
+//                }
+//            }
+//        }
     }
 
 

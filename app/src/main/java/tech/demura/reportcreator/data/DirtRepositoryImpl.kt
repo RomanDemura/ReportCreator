@@ -10,6 +10,10 @@ object DirtRepositoryImpl : DirtRepository {
     private var dirtList = sortedSetOf<Dirt>({ o1, o2 -> o1.id.compareTo(o2.id) })
     private var autoIncrement = 0
 
+    init {
+        addDirtInfo(Dirt(buildingId = 0, importedDirt = 300, usageDirt = 200))
+    }
+
     override fun addDirtInfo(dirt: Dirt): Dirt {
         if (dirt.id == Dirt.UNDEFINED_ID){
             dirt.id = autoIncrement++

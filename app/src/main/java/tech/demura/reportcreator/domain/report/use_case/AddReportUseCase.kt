@@ -5,7 +5,7 @@ import tech.demura.reportcreator.domain.report.repository.ReportRepository
 
 class AddReportUseCase(private val repository: ReportRepository) {
 
-    fun addReport(report: Report){
-        repository.addReport(report)
+    fun addReport(report: Report): Report{
+        return repository.addReport(report)
     }
 }

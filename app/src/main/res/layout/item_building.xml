@@ -32,23 +32,22 @@
             android:layout_height="wrap_content"
             android:text="@{building.nameOfBuilding}"
             android:textSize="28sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            />
         <TextView
             android:id="@+id/tv_person_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{building.nameOfResponsiblePerson}"
             android:textSize="24sp"
-            android:textStyle="italic"
-            android:gravity="end"/>
+            android:textStyle="italic"/>
         <TextView
             android:id="@+id/tv_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{building.address}"
             android:textSize="20sp"
-            android:textStyle="italic"
-            android:gravity="end"/>
+            android:textStyle="italic"/>
 
 
     </LinearLayout>

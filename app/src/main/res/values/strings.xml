@@ -1,12 +1,20 @@
 <resources>
     <string name="app_name">ReportCreator</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="default_building_name">Default Building Name</string>
-    <string name="default_person_name">Default person name</string>
-    <string name="default_address">Default address</string>
+    <string name="default_building_name">Название объекта:</string>
+    <string name="default_person_name">Имя ответственного лица:</string>
+    <string name="default_address">Адрес:</string>
     <string name="default_plant_name">Default plant name</string>
-    <string name="default_plant_count">100 / 100</string>
+    <string name="default_plant_count">%d / %d</string>
     <string name="default_dirt_name">Грунт</string>
-    <string name="default_dirt_count">100 / 100</string>
+    <string name="default_dirt_count">%d / %d</string>
+    <string name="plant_list">Список растений:</string>
+    <string name="report_list">Список отчётов:</string>
+    <string name="btn_save_building">Сохранить</string>
+    <string name="btn_add_plant">Добавить растение</string>
+    <string name="error_input_name_of_building">Введите название объекта</string>
+    <string name="error_input_name_of_responsible_person">Введите ФИО ответственного лица</string>
+    <string name="error_input_address">Введите адрес</string>
+    <string name="btn_add_report">Добавить отчёт</string>
 </resources>

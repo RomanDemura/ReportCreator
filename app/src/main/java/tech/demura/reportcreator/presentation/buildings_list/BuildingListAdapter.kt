@@ -5,18 +5,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import tech.demura.reportcreator.R
 import tech.demura.reportcreator.databinding.ItemBuildingBinding
 import tech.demura.reportcreator.domain.building.entites.Building
 
 class BuildingListAdapter : ListAdapter<Building, BuildingListViewHolder>(BuildingItemDiffCallback()) {
 
-    var buildingList = listOf<Building>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+//    var buildingList = listOf<Building>()
+//        set(value) {
+//            field = value
+//            notifyDataSetChanged()
+//        }
 
     var onClickListener : ((Building) -> Unit)? = null
 
@@ -31,16 +30,11 @@ class BuildingListAdapter : ListAdapter<Building, BuildingListViewHolder>(Buildi
     }
 
     override fun onBindViewHolder(holder: BuildingListViewHolder, position: Int) {
-        val building = buildingList[position]
-        val buildingId = building.id
+        val building = getItem(position)
         if (holder.binding is ItemBuildingBinding)
             holder.binding.building = building
         holder.binding.root.setOnClickListener {
             onClickListener?.invoke(building)
         }
-    }
-
-    override fun getItemCount(): Int {
-        return buildingList.size
     }
 }

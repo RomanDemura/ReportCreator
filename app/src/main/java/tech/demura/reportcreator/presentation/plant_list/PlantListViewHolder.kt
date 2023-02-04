@@ -1,11 +1,7 @@
 package tech.demura.reportcreator.presentation.plant_list
 
-import android.view.View
-import android.widget.TextView
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import tech.demura.reportcreator.R
 
-class PlantListViewHolder(val view: View): RecyclerView.ViewHolder(view) {
-    val tvPlantName = view.findViewById<TextView>(R.id.tv_plant_name)
-    val tvPlantCount = view.findViewById<TextView>(R.id.tv_plant_count)
+class PlantListViewHolder(val binding: ViewDataBinding): RecyclerView.ViewHolder(binding.root) {
 }

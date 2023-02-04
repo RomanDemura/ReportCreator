@@ -11,13 +11,48 @@
         <action
             android:id="@+id/action_buildingListFragment_to_buildingInfoFragment"
             app:destination="@id/buildingInfoFragment" />
+        <action
+            android:id="@+id/action_buildingListFragment_to_addBuildingFragment"
+            app:destination="@id/addBuildingFragment"
+            app:popUpTo="@id/buildingListFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/buildingInfoFragment"
         android:name="tech.demura.reportcreator.presentation.building_info.BuildingInfoFragment"
         android:label="BuildingInfoFragment" >
         <argument
+            android:name="building"
+            app:argType="tech.demura.reportcreator.domain.building.entites.Building" />
+        <action
+            android:id="@+id/action_buildingInfoFragment_to_addPlantFragment"
+            app:destination="@id/addPlantFragment"
+            app:popUpTo="@id/buildingInfoFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_buildingInfoFragment_to_newReportFragment"
+            app:destination="@id/newReportFragment"
+            app:popUpTo="@id/buildingInfoFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBuildingFragment"
+        android:name="tech.demura.reportcreator.presentation.new_building.NewBuildingFragment"
+        android:label="AddBuildingFragment" />
+    <fragment
+        android:id="@+id/addPlantFragment"
+        android:name="tech.demura.reportcreator.presentation.add_plant.AddPlantFragment"
+        android:label="AddPlantFragment" >
+        <argument
             android:name="buildingId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/newReportFragment"
+        android:name="tech.demura.reportcreator.presentation.new_report.NewReportFragment"
+        android:label="NewReportFragment" >
+        <argument
+            android:name="building"
+            app:argType="tech.demura.reportcreator.domain.building.entites.Building" />
     </fragment>
 </navigation>

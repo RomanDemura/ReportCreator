@@ -1,25 +1,22 @@
 package tech.demura.reportcreator.domain.report.entites
 
-import tech.demura.reportcreator.domain.action.entites.Action
-import tech.demura.reportcreator.domain.machine.entites.Machine
 import tech.demura.reportcreator.domain.plant.entites.Plant
-import java.util.*
 
 
 data class Report(
     var id: Int = Plant.UNDEFINED_ID,
     var buildingId: Int,
-    var date: Date,                         // Дата
-    var countOfRegularWorkers: Int,         // Штатные сотрудники
-    var countOfNotRegularWorkers: Int,      // Рабочий класс
-    var countOfSocialWorkers: Int,          // Социальные рабочие
-    var workShift: Int,                     // Рабочая смена
-    var dirtImport: Int,                    // Грунта получено
-    var dirtExport: Int,                    // Грунта увезено
-    var dirtUsage: Int,                     // Грунта использовано
-    var plantsList: List<Plant>,            // Список растений
-    var machines: List<Machine>,            // Список использованной техники
-    var anotherActions: List<Action>,       // Список дополнительных действий
+    var date: Long = 0L,                         // Дата
+    var countOfRegularWorkers: Int = 0,         // Штатные сотрудники
+    var countOfNotRegularWorkers: Int = 0,      // Рабочий класс
+    var countOfSocialWorkers: Int = 0,          // Социальные рабочие
+    var workShift: Int = 0,                     // Рабочая смена
+    var dirtImport: Int = 0,                    // Грунта получено
+    var dirtExport: Int = 0,                    // Грунта увезено
+    var dirtUsage: Int = 0                     // Грунта использовано
+//    var plantsList: List<Plant>,            // Список растений
+//    var machines: List<Machine>,            // Список использованной техники
+//    var anotherActions: List<Action>        // Список дополнительных действий
 ){
     companion object{
         const val UNDEFINED_ID = -1

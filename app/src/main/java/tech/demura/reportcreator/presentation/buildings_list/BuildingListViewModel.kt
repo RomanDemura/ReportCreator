@@ -1,6 +1,5 @@
 package tech.demura.reportcreator.presentation.buildings_list
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import tech.demura.reportcreator.data.BuildingRepositoryImpl
 import tech.demura.reportcreator.domain.building.entites.Building

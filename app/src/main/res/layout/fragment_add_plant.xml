@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".presentation.add_plant.AddPlantFragment">
+
+
+        <EditText
+            android:id="@+id/et_name_of_plant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" />
+
+        <EditText
+            android:id="@+id/et_usage_plants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_margin="8dp" />
+
+        <EditText
+            android:id="@+id/et_import_plants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/btn_add_plant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_add_plant"
+            android:layout_margin="8dp"/>
+
+
+    </LinearLayout>
+</layout>

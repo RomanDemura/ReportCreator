@@ -27,7 +27,7 @@
             android:clickable="true"
             android:contentDescription="Add new building"
             android:focusable="true"
-            app:srcCompat="@drawable/ic_add" />
+            android:src="@drawable/ic_add" />
 
     </FrameLayout>
 </layout>

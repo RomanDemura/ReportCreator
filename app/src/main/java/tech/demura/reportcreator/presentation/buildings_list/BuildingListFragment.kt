@@ -8,17 +8,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import tech.demura.reportcreator.databinding.FragmentBuildingListBinding
+import tech.demura.reportcreator.domain.building.entites.Building
 
 class BuildingListFragment : Fragment() {
 
     private var _binding: FragmentBuildingListBinding? = null
     private val binding: FragmentBuildingListBinding
-    get() = _binding ?: throw RuntimeException("FragmentBuildingListBinding == null")
+        get() = _binding ?: throw RuntimeException("FragmentBuildingListBinding == null")
 
     private val buildingListViewModel: BuildingListViewModel by lazy {
         ViewModelProvider(this)[BuildingListViewModel::class.java]
     }
-    private val adapter: BuildingListAdapter by lazy {
+    private val buildingListAdapter: BuildingListAdapter by lazy {
         BuildingListAdapter()
     }
 
@@ -26,18 +27,15 @@ class BuildingListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBuildingListBinding.inflate(inflater,container,false)
+        _binding = FragmentBuildingListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rvBuildingList.adapter = adapter
-        buildingListViewModel.buildingList.observe(viewLifecycleOwner){
-            adapter.buildingList = it
-        }
-        adapter.onClickListener = {
-            launchBuildingInfo(buildingId = it.id)
+        setupRV()
+        binding.btnAddBuilding.setOnClickListener {
+            launchNewBuilding()
         }
     }
 
@@ -46,10 +44,28 @@ class BuildingListFragment : Fragment() {
         _binding = null
     }
 
+    private fun setupRV() {
+        //RecyclerView for building list
+        binding.rvBuildingList.adapter = buildingListAdapter
+        buildingListViewModel.buildingList.observe(viewLifecycleOwner) {
+            buildingListAdapter.submitList(it)
+        }
+        buildingListAdapter.onClickListener = {
+            launchBuildingInfo(building = it)
+        }
+    }
 
-    private fun launchBuildingInfo(buildingId: Int) {
+    private fun launchNewBuilding() {
         findNavController().navigate(
-            BuildingListFragmentDirections.actionBuildingListFragmentToBuildingInfoFragment(buildingId)
+            BuildingListFragmentDirections.actionBuildingListFragmentToAddBuildingFragment()
+        )
+    }
+
+    private fun launchBuildingInfo(building: Building) {
+        findNavController().navigate(
+            BuildingListFragmentDirections.actionBuildingListFragmentToBuildingInfoFragment(
+                building
+            )
         )
     }
 }

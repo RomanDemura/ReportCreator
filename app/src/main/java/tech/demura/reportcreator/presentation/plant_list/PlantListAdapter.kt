@@ -2,31 +2,36 @@ package tech.demura.reportcreator.presentation.plant_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.ListAdapter
 import tech.demura.reportcreator.R
+import tech.demura.reportcreator.databinding.ItemPlantBinding
 import tech.demura.reportcreator.domain.plant.entites.Plant
 
-class PlantListAdapter : RecyclerView.Adapter<PlantListViewHolder>() {
+class PlantListAdapter : ListAdapter<Plant, PlantListViewHolder>(PlantItemDiffCallback()) {
 
-    var plantsList = listOf<Plant>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+//    var plantsList = listOf<Plant>()
+//        set(value) {
+//            field = value
+//            notifyDataSetChanged()
+//        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlantListViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_plant,parent,false)
-        return PlantListViewHolder(view)
+        val binding = DataBindingUtil.inflate<ViewDataBinding>(
+            LayoutInflater.from(parent.context),
+            R.layout.item_plant,
+            parent,
+            false
+        )
+        return PlantListViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: PlantListViewHolder, position: Int) {
-        val plant = plantsList[position]
-        holder.tvPlantName.text = plant.name
-        holder.tvPlantCount.text = "${plant.usagePlants} / ${plant.importedPlants}"
+        val plant = getItem(position)
+        if (holder.binding is ItemPlantBinding){
+            holder.binding.plant = plant
+        }
     }
 
-    override fun getItemCount(): Int {
-        return plantsList.size
-    }
 }
